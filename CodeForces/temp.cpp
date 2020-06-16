@@ -1,19 +1,31 @@
 #include <iostream>
-#include <algorithm>
+#include <set>
 
 using namespace std;
 
 int main()
 {
-    int n;
-    bool good = true;
-    int x, y;
-    cin >> n;
-    for (int i = 0; i < n; i++)
+    int n, t, a[100000];
+    set<int> b;
+    cin >> n >> t;
+
+    for (int i = 1; i <= n; i++)
     {
-        cin >> x >> y;
-        if (x != y)
-            good = false;
+        cin >> a[i];
     }
-    cout << (good ? "Poor Alex" : "Happy Alex");
+
+    for (int i = n; i >= 1; i--)
+    {
+        b.insert(a[i]);
+        a[i] = b.size();
+    }
+
+    for (int i = 0; i < t; i++)
+    {
+        int x;
+        cin >> x;
+        cout << a[x] << endl;
+    }
+
+    return 0;
 }
