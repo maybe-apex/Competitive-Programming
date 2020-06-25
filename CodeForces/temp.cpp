@@ -1,30 +1,39 @@
 #include <iostream>
-#include <set>
 
 using namespace std;
 
+int work(int a, int b)
+{
+    long long c = 0;
+    while (a > 1 || b > 1)
+    {
+        if (a >= b)
+        {
+            a -= 2;
+            b--;
+            c++;
+        }
+        else
+        {
+            b -= 2;
+            a--;
+            c++;
+        }
+    }
+    return c;
+}
+
 int main()
 {
-    int n, t, a[100000];
-    set<int> b;
-    cin >> n >> t;
 
-    for (int i = 1; i <= n; i++)
+    int t;
+    cin >> t;
+    while (t--)
     {
-        cin >> a[i];
-    }
-
-    for (int i = n; i >= 1; i--)
-    {
-        b.insert(a[i]);
-        a[i] = b.size();
-    }
-
-    for (int i = 0; i < t; i++)
-    {
-        int x;
-        cin >> x;
-        cout << a[x] << endl;
+        long long a, b, c;
+        cin >> a >> b;
+        cout << (abs(a - b) >= min(a, b) ? min(a, b) : work(a, b));
+        cout << endl;
     }
 
     return 0;

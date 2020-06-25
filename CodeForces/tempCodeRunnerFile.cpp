@@ -1,3 +1,3 @@
- - rt.size();
-        int cl = c - ct.size();
-        cout << (m
+ < n; i++)
+        //     cout << a[i] << " ";
+        // cout << endl;
