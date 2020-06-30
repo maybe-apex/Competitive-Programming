@@ -4,7 +4,10 @@ using namespace std;
 
 int main()
 {
-    system("clear");
+    int n, m;
+    cin >> n >> m;
+
+    
 
     return 0;
 }

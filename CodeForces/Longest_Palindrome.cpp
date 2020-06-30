@@ -1,10 +1,8 @@
-#include <iostream>
-#include <algorithm>
-#include <set>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
-string s[1000];
+const int MAX_N = 100;
+string s[MAX_N]; // how would this work //
 
 int main()
 {
@@ -13,18 +11,18 @@ int main()
     cin >> n >> m;
     for (i = 0; i < n; i++)
     {
-        cin >> s[i];
+        cin >> s[i]; //doesnt make sense to insert a string inside a string //
         dict.insert(s[i]);
     }
     vector<string> left, right;
     string mid;
-    for (int i = 0; i < n; i++)
+    for (i = 0; i < n; i++)
     {
         string t = s[i];
         reverse(t.begin(), t.end());
         if (t == s[i])
             mid = t;
-        else if (dict.find(t) != dict.end())
+        else if (dict.find(t) != dict.end()) // what does this do //
         {
             left.push_back(s[i]);
             right.push_back(t);
@@ -32,13 +30,12 @@ int main()
             dict.erase(t);
         }
     }
-    cout << left.size() * m * 2 + mid.size() << endl;
+    cout << left.size() * m * 2 + mid.size() << endl; // why is left.size() multiplied by m //
     for (string x : left)
         cout << x;
     cout << mid;
     reverse(right.begin(), right.end());
     for (string x : right)
-        cout << x << endl;
-
-    return 0;
+        cout << x;
+    cout << endl;
 }
