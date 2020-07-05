@@ -3,7 +3,8 @@
         "string": "cpp",
         "iostream": "cpp",
         "istream": "cpp",
-        "functional": "cpp"
+        "functional": "cpp",
+        "utility": "cpp"
     },
     "editor.formatOnSave": true,
     "files.autoSave": "onFocusChange"

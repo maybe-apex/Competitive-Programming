@@ -1,7 +1,9 @@
-
-    if (!s[s.size() - x - 1])
-        step++;
-    for (int i = s.size() - 1; i >= s.size() - x - 1; i--)
-        if (s[i])
-            step++;
-    cout << step;
+; i++)
+    // {
+    //     for (int j = 0; j < n; i++)
+    //     {
+    //         x += min(abs(i - 1 - a[i]), min(abs(i - a[i]), abs(i + 1 - a[i])));
+    //     }
+    //     ans = min(ans, x);
+    //     x = 0;
+    // }
