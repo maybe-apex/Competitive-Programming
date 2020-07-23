@@ -1,23 +1,37 @@
-#include <iostream>
+#include <bits/stdc++.h>
+
 using namespace std;
 
 int main()
 {
-    string S;
-    cin >> S;
-    string a[5] = {"Danil",
-                   "Slava",
-                   "Olya",
-                   "Ann",
-                   "Nikita"};
-    int N = S.size();
-    int num = 0;
-    for (string s : a)
+    int t;
+    cin >> t;
+    while (t--)
     {
-        for (int i = 0; i < N; i++)
-            if (S.substr(i, s.size()) == s)
-                num++;
+        int n, k;
+        cin >> n >> k;
+        vector<int> a(n);
+        for (auto &it : a)
+            cin >> it;
+        map<int, int> cnt;
+        int mx = 0;
+        for (auto &it : a)
+        {
+            if (it % k == 0)
+                continue;
+            ++cnt[k - it % k];
+            mx = max(mx, cnt[k - it % k]);
+        }
+        long long ans = 0;
+        for (auto [key, value] : cnt)
+        {
+            if (value == mx)
+            {
+                ans = k * 1ll * (value - 1) + key + 1;
+            }
+        }
+        cout << ans << endl;
     }
-    cout << (num == 1 ? "YES" : "NO") << endl;
+
     return 0;
 }

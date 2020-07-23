@@ -1,26 +1,13 @@
 #include <iostream>
-#include <string>
 
 using namespace std;
 
-int main(){
-
-  string i,o;
-  int l=0;
-  getline(cin,i);
-
-  for(int x = 0 ; i[x] == 0 ; x++ )
-  {
-    l++;
-  }
-
-  for(int x = 0 ; x < l ; x++ )
-  {
-    o[x] = i[l-x];
-  }
-
-  cout << o;
-
+int main()
+{
+  string a, b;
+  cin >> a >> b;
+  reverse(a.begin(), a.end());
+  cout << (a == b ? "YES" : "NO");
 
   return 0;
 }

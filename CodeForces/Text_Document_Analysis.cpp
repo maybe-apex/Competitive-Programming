@@ -4,37 +4,21 @@ using namespace std;
 
 int main()
 {
-
-    int n, x = 0, y = 0, mxy = -1, mxx = -1;
+    bool inside = false;
+    int n, mxout = 0, count = 0, mxin = 0;
     string s;
     cin >> n >> s;
-
-    for (int i = 0; i <= s.size(); i++)
+    for (int i = 0; i < n; i++)
     {
+        if (s[i] == '(')
+            count = 0, inside = true;
+        if (s[i] == ')')
+            count = 0, inside = false;
         if (s[i] == '_')
-        {
-            cout << i << endl;
-            while (s[i + 1] != '_' && i < s.size())
-            {
-                i++;
-                if (s[i] == '(' || s[i] == ')')
-                {
-                    while (s[i + i] != ')' && i <= s.size())
-                    {
-                        i++;
-                        y++;
-                    }
-                    mxy = max(y, mxy);
-                    y = 0;
-                }
-                cout << s[i] << " ";
-                x++;
-            }
-            cout << endl
-                 << mxx << " ";
-            mxx = max(x, mxx);
-            x = 0;
-        }
+            count = 0;
+        count++;
+        inside ? mxin = max(mxin, count) : mxout = max(mxout, count);
     }
+    cout << mxout << " " << mxin;
     return 0;
 }

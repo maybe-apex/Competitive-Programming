@@ -3,30 +3,30 @@
 
 using namespace std;
 
-bool isprime(int a)
+int x, y;
+
+bool isuseable(double a)
 {
-    if (a == 1 || a == 2)
-        return true;
-    for (int i = 2; i <= sqrt(a); i++)
-        if (a % i == 0)
-            return false;
-    return true;
+    for (double i = 5; i < a; i++)
+        if (ceil(a / i) == a / i && a / i >= 5)
+        {
+            x = a / i, y = i;
+            return true;
+        }
+    return false;
 }
 
 int main()
 {
-    int n;
+    double n;
     char vow[5] = {'a', 'e', 'i', 'o', 'u'};
     cin >> n;
-    if (isprime(n) || n <= 25)
+    if (!isuseable(n))
         return cout << "-1", 0;
     else
-    {
-        for (int i = 0; i < n; i++)
-        {
-            cout << vow[i % 5];
-        }
-    }
+        for (int i = 0; i < x; i++)
+            for (int j = 0; j < y; j++)
+                cout << vow[(i + j) % 5];
 
     return 0;
 }

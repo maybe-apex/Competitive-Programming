@@ -1,35 +1,25 @@
 #include <iostream>
 using namespace std;
 
-bool compare(string &s1, string &s2)
-{
-    return s1.size() < s2.size();
-}
-
 int main()
 {
-    int n, k, i = 0;
+    int n, k;
     cin >> n >> k;
-    string s[n], t, a;
-    // getline(cin, t);
-    for (int i = 0; i < n; i++)
-        cin >> s[i++];
-    // getline(cin, s[i++]);
-    cin >> a;
+    int a[105] = {0};
+    string s;
     for (int i = 0; i < n; i++)
     {
-        cout << s[i] << endl;
+        cin >> s;
+        a[s.size()]++;
     }
-    // sort(s, s + n, compare);
-    // int x = 1;
-    // for (int i = 0; i < n; i++)
-    // {
-    //     if (s[i] == a)
-    //         break;
-    //     else
-    //         x++;
-    // }
-    // cout << x;
+    cin >> s;
+    int b = s.size();
+    int sum = 0;
+    for (int i = 0; i < b; i++)
+    {
+        sum += a[i];
+    }
+    cout << sum + sum / k * 5 + 1 << " " << sum + a[b] + (sum + a[b] - 1) / k * 5;
 
     return 0;
 }
