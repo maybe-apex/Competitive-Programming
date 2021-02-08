@@ -23,17 +23,16 @@ int main()
             cout << -1 << endl;
         else
         {
-            auto it = s.begin();
-            for (int i = 0; i < 2 * s.size(); i++)
+            cout << n * k << endl;
+            for (int i = 1; i <= n; i++)
             {
-                if (it == s.end())
-                    it = s.begin();
-                cout << *it++;
-                if (i == s.size() - 1)
-                {
-                    while ()
-                }
+                for (auto x : s)
+                    cout << x << " ";
+                for (int j = 1; j <= k - s.size(); j++)
+                    cout << 1 << " ";
             }
+            cout << endl;
         }
-        return 0;
     }
+    return 0;
+}

@@ -8,29 +8,25 @@ int main()
     cin >> t;
     while (t--)
     {
-        int n, k;
-        cin >> n >> k;
-        vector<int> a(n);
-        for (auto &it : a)
-            cin >> it;
-        map<int, int> cnt;
-        int mx = 0;
-        for (auto &it : a)
+        int x, y;
+        cin >> x >> y;
+        string s;
+        bool possible = 1;
+        cin >> s;
+        int a[256];
+        for (int i = 0; i < 256; i++)
+            a[i] = 0;
+        x > 0 ? a['R'] = abs(x) : a['L'] = abs(x);
+        y > 0 ? a['U'] = abs(y) : a['D'] = abs(y);
+        for (int i = 0; i < s.size(); i++)
         {
-            if (it % k == 0)
-                continue;
-            ++cnt[k - it % k];
-            mx = max(mx, cnt[k - it % k]);
+            if (a[s[i]] > 0)
+                a[s[i]]--;
         }
-        long long ans = 0;
-        for (auto [key, value] : cnt)
-        {
-            if (value == mx)
-            {
-                ans = k * 1ll * (value - 1) + key + 1;
-            }
-        }
-        cout << ans << endl;
+        for (auto i : a)
+            if (i > 0)
+                possible = 0;
+        cout << (possible ? "YES\n" : "NO\n");
     }
 
     return 0;

@@ -11,18 +11,17 @@ int main()
         string s;
         cin >> s;
         char x;
-        int count = 0;
-        for (int i = 0; i < s.size() - 2; i++)
+        int count = 0, ans = 0;
+        x = (s[0] == '0') ? '0' : '1';
+        for (int i = 1; i < s.size(); i++)
         {
-            if (count < 1)
-                if (s[i] != s[i + 1])
-                    count++, x = s[i + 1];
             if (count >= 1)
-                if (s[i] != x)
-                    count++;
+                if (s[i] == s[0])
+                    ans++;
+            if (x != s[i])
+                count++;
         }
-        cout << (count > 1 ? count - 1 : 0);
-        cout << endl;
+        cout << ans << endl;
     }
     return 0;
 }

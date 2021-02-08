@@ -5,6 +5,7 @@ using namespace std;
 int main()
 {
     int n, count = 0, j = n - 1;
+    long long r = 0;
     cin >> n;
     int a[n];
     for (int i = 0; i < n; i++)
@@ -16,15 +17,11 @@ int main()
         a[i] -= x;
     }
     sort(a, a + n);
-    for (int i = 0; i < n; i++)
+    for (int j = n; j; j--)
     {
-        for (int j = n - 1; j > i; j--)
-        {
-            int s = a[i] + a[j];
-            if (s <= 0)
-                break;
-            count++;
-        }
+        if (a[n - j] + a[n - 1] > 0)
+            r += j - 1, n--;
     }
+    cout << r;
     return 0;
 }
